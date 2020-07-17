@@ -31,3 +31,9 @@ build/
 
 ### VS Code ###
 .vscode/
+
+#Security
+src/main/resources/application-dev.properties
+
+#npm
+src/main/resources/static/node_modules/*
