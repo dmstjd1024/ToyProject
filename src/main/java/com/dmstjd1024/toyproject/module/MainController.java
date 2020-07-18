@@ -13,5 +13,17 @@ public class MainController {
         return "index";
     }
 
+    @GetMapping("/checkout")
+    public String checkout(){
+
+        return "checkout";
+    }
+
+    @GetMapping("/product")
+    public String product(){
+
+        return "product";
+    }
+
 }
 
