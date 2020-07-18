@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments.html :: head"></head>
+
+<body>
+<nav th:replace="fragments.html :: main-nav"></nav>
+
+<main>
+    <div class="container">
+        <div class="row justify-content-center">
+            <!-- Material form register -->
+            <div class="py-5 col-md-6">
+                <h5 class="text-center py-4">
+                    <strong>Sign up</strong>
+                </h5>
+                <hr>
+
+                <div class="px-lg-5">
+                    <form class="" style="color: #757575;" action="#" th:action="@{/sign-up}"
+                          method="post"
+                          th:object="${signUpForm}">
+
+                        <div class="md-form form-group">
+                            <input type="text" id="nickname" th:field="*{nickname}" class="form-control"
+                                   aria-describedby="nicknameHelp" required minlength="3"
+                                   maxlength="20">
+                            <label for="nickname">Nick name</label>
+                            <small id="nicknameHelp" class="form-text text-muted">
+                                공백없이 문자와 숫자로만 3자 이상 20자 이내로 입력하세요.
+                            </small>
+                            <small class="invalid-feedback">닉네임을 입력하세요.</small>
+                        </div>
+
+                        <!-- E-mail -->
+                        <div class="md-form">
+                            <input type="email" id="email" th:field="*{email}" class="form-control"
+                                   aria-describedby="emailHelp" required>
+                            <label for="email">E-mail</label>
+                            <small id="emailHelp" class="form-text text-muted">
+                                메일 수신이 가능한 계정을 입력해주세요
+                            </small>
+                            <small class="invalid-feedback">이메일을 입력하세요.</small>
+                        </div>
+
+                        <!-- Password -->
+                        <div class="md-form form-group ">
+                            <input type="password" id="password" th:field="*{password}" class="form-control">
+                            <label for="password">Password(At least 8 characters)</label>
+                            <small id="passwordHelp" class="form-text text-muted">
+                                8자 이상 50자 이내로 입력하세요. 영문자, 숫자, 특수기호를 사용할 수 있으며 공백은 사용할 수 없습니다.
+                            </small>
+                            <small class="invalid-feedback">패스워드를 입력하세요.</small>
+                        </div>
+
+                        <button class="btn btn-outline-info btn-rounded btn-block my-5 waves-effect z-depth-0"
+                                type="submit">Sign up
+                        </button>
+
+                        <div class="text-center">
+                            <p>or sign in with:</p>
+                            <a type="button" class="btn-floating btn-li btn-sm">
+                                <i class="fab fa-google"></i>
+                            </a>
+                            <a type="button" class="btn-floating btn-git btn-sm">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                        <hr>
+                    </form>
+                    <!-- Form -->
+                </div>
+            </div>
+            <!-- Material form register -->
+        </div>
+    </div>
+</main>
+
+<footer class="page-footer text-center font-small mt-4 wow fadeIn">
+
+    <div class="pt-4">
+        <a class="btn btn-outline-white" href="https://mdbootstrap.com/docs/jquery/getting-started/download/"
+           target="_blank"
+           role="button">Download MDB
+            <i class="fas fa-download ml-2"></i>
+        </a>
+        <a class="btn btn-outline-white" href="https://mdbootstrap.com/education/bootstrap/" target="_blank"
+           role="button">Start
+            free tutorial
+            <i class="fas fa-graduation-cap ml-2"></i>
+        </a>
+    </div>
+    <hr class="my-4">
+
+    <div class="pb-4">
+        <a href="https://www.facebook.com/mdbootstrap" target="_blank">
+            <i class="fab fa-facebook-f mr-3"></i>
+        </a>
+
+        <a href="https://twitter.com/MDBootstrap" target="_blank">
+            <i class="fab fa-twitter mr-3"></i>
+        </a>
+
+        <a href="https://www.youtube.com/watch?v=7MUISDJ5ZZ4" target="_blank">
+            <i class="fab fa-youtube mr-3"></i>
+        </a>
+
+        <a href="https://plus.google.com/u/0/b/107863090883699620484" target="_blank">
+            <i class="fab fa-google-plus-g mr-3"></i>
+        </a>
+
+        <a href="https://dribbble.com/mdbootstrap" target="_blank">
+            <i class="fab fa-dribbble mr-3"></i>
+        </a>
+
+        <a href="https://pinterest.com/mdbootstrap" target="_blank">
+            <i class="fab fa-pinterest mr-3"></i>
+        </a>
+
+        <a href="https://github.com/mdbootstrap/bootstrap-material-design" target="_blank">
+            <i class="fab fa-github mr-3"></i>
+        </a>
+
+        <a href="http://codepen.io/mdbootstrap/" target="_blank">
+            <i class="fab fa-codepen mr-3"></i>
+        </a>
+    </div>
+    <div class="footer-copyright py-3">
+        © 2019 Copyright:
+        <a href="https://mdbootstrap.com/education/bootstrap/" target="_blank"> MDBootstrap.com </a>
+    </div>
+
+</footer>
+
+</body>
+</html>

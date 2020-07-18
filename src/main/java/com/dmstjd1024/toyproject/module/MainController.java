@@ -1,6 +1,7 @@
 package com.dmstjd1024.toyproject.module;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,9 +22,18 @@ public class MainController {
 
     @GetMapping("/product")
     public String product(){
-
         return "product";
     }
 
+    @GetMapping("/login")
+    public String login() {
+        return "login";
+    }
+
+    @GetMapping("/sign-up")
+    public String signUp(Model model){
+        model.addAttribute(new SignUpForm());
+        return "sign-up";
+    }
 }
 
