@@ -24,17 +24,17 @@
 
                         <div class="md-form form-group">
                             <input type="text" id="nickname" th:field="*{nickname}" class="form-control"
-                                   aria-describedby="nicknameHelp" required minlength="3"
-                                   maxlength="20">
+                                   aria-describedby="nicknameHelp" required >
                             <label for="nickname">Nick name</label>
                             <small id="nicknameHelp" class="form-text text-muted">
-                                공백없이 문자와 숫자로만 3자 이상 20자 이내로 입력하세요.
+                                문자, 숫자로 4자 이상 20자 이내로 입력하세요.
                             </small>
                             <small class="invalid-feedback">닉네임을 입력하세요.</small>
+                            <small class="form-text text-danger" th:if="${#fields.hasErrors('nickname')}" th:errors="*{nickname}">Nickname Error</small>
                         </div>
 
                         <!-- E-mail -->
-                        <div class="md-form">
+                        <div class="md-form form-group">
                             <input type="email" id="email" th:field="*{email}" class="form-control"
                                    aria-describedby="emailHelp" required>
                             <label for="email">E-mail</label>
@@ -42,16 +42,19 @@
                                 메일 수신이 가능한 계정을 입력해주세요
                             </small>
                             <small class="invalid-feedback">이메일을 입력하세요.</small>
+                            <small class="form-text text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</small>
                         </div>
 
                         <!-- Password -->
                         <div class="md-form form-group ">
-                            <input type="password" id="password" th:field="*{password}" class="form-control">
+                            <input type="password" id="password" th:field="*{password}" class="form-control"
+                            aria-describedby="passwordHelp" required>
                             <label for="password">Password(At least 8 characters)</label>
                             <small id="passwordHelp" class="form-text text-muted">
-                                8자 이상 50자 이내로 입력하세요. 영문자, 숫자, 특수기호를 사용할 수 있으며 공백은 사용할 수 없습니다.
+                                대문자, 영문자, 숫자 이용해 8자 이상 20자 이내로 입력하세요.
                             </small>
                             <small class="invalid-feedback">패스워드를 입력하세요.</small>
+                            <small class="form-text text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</small>
                         </div>
 
                         <button class="btn btn-outline-info btn-rounded btn-block my-5 waves-effect z-depth-0"
