@@ -30,10 +30,6 @@ public class MainController {
         return "login";
     }
 
-    @GetMapping("/sign-up")
-    public String signUp(Model model){
-        model.addAttribute(new SignUpForm());
-        return "sign-up";
-    }
+
 }
 
