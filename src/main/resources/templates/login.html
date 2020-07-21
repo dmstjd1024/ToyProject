@@ -22,22 +22,32 @@
                           th:action="@{/login}" method="post">
 
                         <div class="md-form form-group">
-                            <input id="username" name="username" type="text" class="form-control" required>
+                            <input id="username" name="username" type="text" class="form-control"
+                                   aria-describedby="emailHelp" required>
                             <label for="username">Nickname or E-mail</label>
                             <small class="invalid-feedback">이메일을 입력하세요.</small>
+                            <small id="emailHelp" class="form-text text-muted">
+                                이메일 또는 닉네임을 입력하세요.
+                            </small>
                         </div>
                         <!-- Password -->
 
                         <div class="md-form form-group">
-                            <input type="password" id="password" class="form-control"
+                            <input type="password" id="password" name="password" class="form-control"
                                    aria-describedby="passwordHelp" required>
                             <label for="password">Password</label>
                             <small id="passwordHelp" class="form-text text-muted">
-                                패스워드가 기억나지 않나요? <!--TODO-->
+                                비밀번호를 입력하세요
                             </small>
                             <small class="invalid-feedback">패스워드를 입력해주세요</small>
-
                         </div>
+
+                        <div th:if="${param.error}" class="alert alert-danger" role="alert">
+                            <small>이메일(또는 닉네임)과 패스워드가 정확하지 않습니다.</small>
+                            <small>확인 후 다시 입력하시거나, <a href="#" th:href="@{/find-password}">패스워드 찾기</a>를 이용하세요.
+                            </small>
+                        </div>
+
 
                         <div class="form-group">
                             <!-- Remember me -->
@@ -47,7 +57,6 @@
                             </div>
                         </div>
 
-
                         <!-- Sign in button -->
                         <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0"
                                 type="submit">Sign in
@@ -55,12 +64,12 @@
 
                         <div class="text-center">
 
-                            <p>Not a member?
-                                <a th:href="@{/sign-up}">Register</a>
-                            </p>
+                            <small><p>회원이 아니십니까?
+                                <a th:href="@{/sign-up}">회원가입</a>
+                            </p></small>
 
                             <!-- Social login -->
-                            <p>or sign in with:</p>
+                            <p>SNS 로그인</p>
                             <a type="button" class="btn-floating btn-li btn-sm">
                                 <i class="fab fa-linkedin-in"></i>
                             </a>
