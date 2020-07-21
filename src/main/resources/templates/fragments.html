@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Material Design Bootstrap</title>
+    <title>Es Mall</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
     <!-- Bootstrap core CSS -->
@@ -31,19 +31,13 @@
         new WOW().init();
     </script>
 
-    <!--Modal event-->
-    <script>
-        $('#elegantModalForm').on('shown.bs.modal', function () {
-            $('#Form-email1').trigger('focus')
-        })
-    </script>
 </head>
 
 <nav th:fragment="main-nav" class="navbar navbar-expand-lg navbar-light white scrolling-navbar sticky-top">
     <div class="container ">
 
         <!-- Brand -->
-        <a class="navbar-brand waves-effect" th:href="@{/}" target="_blank">
+        <a class="navbar-brand waves-effect" th:href="@{/}">
             <strong class="blue-text">ES MALL</strong>
         </a>
 
@@ -60,18 +54,17 @@
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
                     <a class="nav-link waves-effect" th:href="@{/}">Home
-                        <span class="sr-only">(current)</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link waves-effect" th:href="@{/shop}" target="_blank">
+                    <a class="nav-link waves-effect" th:href="@{/shop}" >
                         Shop
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link waves-effect"
                        href=""
-                       target="_blank">Community</a>
+                       >Community</a>
                 </li>
             </ul>
 
@@ -81,24 +74,31 @@
                     <a class="nav-link waves-effect">
                         <span class="badge red z-depth-1 mr-1 btn-lg"> 1 </span>
                         <i class="fas fa-shopping-cart btn-lg"></i>
-                        <span class="clearfix d-none d-sm-inline-block"> Cart </span>
+                        <span class="clearfix d-none d-sm-inline-block"></span>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="https://www.facebook.com/mdbootstrap" class="nav-link waves-effect" target="_blank">
-                        <i class="fab fa-facebook-f btn-lg"></i>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="https://github.com/dmstjd1024/ToyProject" class="nav-link waves-effect" target="_blank">
-                        <i class="fab fa-github btn-lg"></i>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <div class="text-center">
+                <li class="nav-item" >
+                    <div class="text-center" sec:authorize="!isAuthenticated()">
                         <a th:href="@{/login}" class="nav-link waves-effect btn btn-rounded">Login</a>
                     </div>
                 </li>
+                <li class="nav-item dropdown" sec:authorize="isAuthenticated()">
+                    <div class="text-center">
+                        <a class="nav-link waves-effect btn btn-rounded dropdown-toggle" href="#" id="userDropdown"
+                           role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span sec:authentication="name">Username</span>님
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-sm-right" aria-labelledby="userDropdown">
+                            <a class="dropdown-item text-center">My Page</a>
+                            <a class="dropdown-item text-center">회원정보관리</a>
+                            <a class="dropdown-item text-center">위시리스트</a>
+                            <a class="dropdown-item text-center" th:href="@{/logout}">
+                                Logout
+                            </a>
+                        </div>
+                    </div>
+                </li>
+
             </ul>
         </div>
     </div>
@@ -109,11 +109,11 @@
     <!--Call to action-->
     <div class="pt-4">
         <a class="btn btn-outline-white" href="https://mdbootstrap.com/docs/jquery/getting-started/download/"
-           target="_blank"
+           
            role="button">Download MDB
             <i class="fas fa-download ml-2"></i>
         </a>
-        <a class="btn btn-outline-white" href="https://mdbootstrap.com/education/bootstrap/" target="_blank"
+        <a class="btn btn-outline-white" href="https://mdbootstrap.com/education/bootstrap/" 
            role="button">Start
             free tutorial
             <i class="fas fa-graduation-cap ml-2"></i>
@@ -125,35 +125,35 @@
 
     <!-- Social icons -->
     <div class="pb-4">
-        <a href="https://www.facebook.com/mdbootstrap" target="_blank">
+        <a href="https://www.facebook.com/mdbootstrap" >
             <i class="fab fa-facebook-f mr-3"></i>
         </a>
 
-        <a href="https://twitter.com/MDBootstrap" target="_blank">
+        <a href="https://twitter.com/MDBootstrap" >
             <i class="fab fa-twitter mr-3"></i>
         </a>
 
-        <a href="https://www.youtube.com/watch?v=7MUISDJ5ZZ4" target="_blank">
+        <a href="https://www.youtube.com/watch?v=7MUISDJ5ZZ4" >
             <i class="fab fa-youtube mr-3"></i>
         </a>
 
-        <a href="https://plus.google.com/u/0/b/107863090883699620484" target="_blank">
+        <a href="https://plus.google.com/u/0/b/107863090883699620484" >
             <i class="fab fa-google-plus-g mr-3"></i>
         </a>
 
-        <a href="https://dribbble.com/mdbootstrap" target="_blank">
+        <a href="https://dribbble.com/mdbootstrap" >
             <i class="fab fa-dribbble mr-3"></i>
         </a>
 
-        <a href="https://pinterest.com/mdbootstrap" target="_blank">
+        <a href="https://pinterest.com/mdbootstrap" >
             <i class="fab fa-pinterest mr-3"></i>
         </a>
 
-        <a href="https://github.com/mdbootstrap/bootstrap-material-design" target="_blank">
+        <a href="https://github.com/mdbootstrap/bootstrap-material-design" >
             <i class="fab fa-github mr-3"></i>
         </a>
 
-        <a href="http://codepen.io/mdbootstrap/" target="_blank">
+        <a href="http://codepen.io/mdbootstrap/" >
             <i class="fab fa-codepen mr-3"></i>
         </a>
     </div>
@@ -162,7 +162,7 @@
     <!--Copyright-->
     <div class="footer-copyright py-3">
         © 2019 Copyright:
-        <a href="https://mdbootstrap.com/education/bootstrap/" target="_blank"> MDBootstrap.com </a>
+        <a href="https://mdbootstrap.com/education/bootstrap/" > MDBootstrap.com </a>
     </div>
     <!--/.Copyright-->
 
