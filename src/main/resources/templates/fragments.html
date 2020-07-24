@@ -49,53 +49,56 @@
 
         <!-- Links -->
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
             <!-- Left -->
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
                     <a class="nav-link waves-effect" th:href="@{/}">Home
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link waves-effect" th:href="@{/shop}" >
-                        Shop
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-555" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">Shop
                     </a>
+                    <div class="dropdown-menu dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-555">
+                        <a class="dropdown-item" href="#">아우터</a>
+                        <a class="dropdown-item" href="#">상의</a>
+                        <a class="dropdown-item" href="#">하의</a>
+                        <a class="dropdown-item" href="#">악세사리</a>
+                    </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link waves-effect"
-                       href=""
-                       >Community</a>
+                    <a class="nav-link waves-effect" href="">Community</a>
                 </li>
             </ul>
 
             <!-- Right -->
-            <ul class="navbar-nav nav-flex-icons">
+            <ul class="navbar-nav ml-auto nav-flex-icons">
                 <li class="nav-item">
-                    <a class="nav-link waves-effect">
+                    <a class="nav-link waves-effect waves-light">
                         <span class="badge red z-depth-1 mr-1 btn-lg"> 1 </span>
                         <i class="fas fa-shopping-cart btn-lg"></i>
                         <span class="clearfix d-none d-sm-inline-block"></span>
                     </a>
                 </li>
-                <li class="nav-item" >
+                <li class="nav-item">
                     <div class="text-center" sec:authorize="!isAuthenticated()">
-                        <a th:href="@{/login}" class="nav-link waves-effect btn btn-rounded">Login</a>
+                        <a th:href="@{/login}" class="nav-link waves-effect my-2">Login</a>
                     </div>
                 </li>
-                <li class="nav-item dropdown" sec:authorize="isAuthenticated()">
-                    <div class="text-center">
-                        <a class="nav-link waves-effect btn btn-rounded dropdown-toggle" href="#" id="userDropdown"
-                           role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span sec:authentication="name">Username</span>님
+                <li class="nav-item avatar dropdown" sec:authorize="isAuthenticated()">
+                    <a class="nav-link waves-effect waves-light dropdown-toggle" href="#" id="userDropdown"
+                       role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-3.jpg"
+                             class="rounded-circle z-depth-0 my-2"
+                             alt="profile default image" height="32" width="32">
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-sm-right dropdown-secondary" aria-labelledby="userDropdown">
+                        <a class="dropdown-item text-center" th:href="@{/settings/purchase}">마이 페이지</a>
+                        <a class="dropdown-item text-center" th:href="@{/settings/contact}">나의 문의</a>
+                        <a class="dropdown-item text-center" th:href="@{/settings/account}">회원정보 설정</a>
+                        <a class="dropdown-item text-center" th:href="@{/logout}">
+                            Logout
                         </a>
-                        <div class="dropdown-menu dropdown-menu-sm-right" aria-labelledby="userDropdown">
-                            <a class="dropdown-item text-center">My Page</a>
-                            <a class="dropdown-item text-center">회원정보관리</a>
-                            <a class="dropdown-item text-center">위시리스트</a>
-                            <a class="dropdown-item text-center" th:href="@{/logout}">
-                                Logout
-                            </a>
-                        </div>
                     </div>
                 </li>
 
@@ -104,6 +107,33 @@
     </div>
 </nav>
 
+<div th:fragment="settings-menu">
+    <ul class="list-group">
+        <li class="list-group-item">
+            <h4>나의 주문</h4>
+            <a class="text-body" th:href="@{/settings/purchase}">주문/배송 조회</a><br/>
+            <a class="text-body" th:href="@{/settings/purchase/cancel}">취소/반품 신청</a>
+        </li>
+        <li class="list-group-item">
+            <h4>나의 문의</h4>
+            <a class="text-body" th:href="@{/settings/contact}">나의 문의 조회</a><br/>
+            <a class="text-body" th:href="@{/settings/contact/create}">문의 하기</a><br/>
+            <a class="text-body" th:href="@{/settings/contact/reviews}">상품평</a></li>
+        </li>
+        <li class="list-group-item">
+            <h4>나의 쿠폰</h4>
+            <a class="text-body" th:href="@{/settings/coupon}">쿠폰</a>
+        </li>
+
+        </li>
+        <li class="list-group-item">
+            <h3>나의 정보</h3>
+            <a class="text-body" th:href="@{/settings/user}">회원정보 설정</a><br/>
+            <a class="text-body" th:href="@{/settings/user/withdraw}">회원 탈퇴</a><br/>
+            <a class="text-body" th:href="@{/settings/address}">배송지 관리</a></li>
+    </ul>
+</div>
+
 <footer th:fragment="footer" class="page-footer text-center font-small mt-4 wow fadeIn">
 
     <hr class="my-4">
@@ -111,7 +141,7 @@
     <!--Copyright-->
     <div class="footer-copyright py-3">
         © 2020 :
-        <a href="#" > EsMall.com</a>
+        <a href="#"> EsMall.com</a>
     </div>
     <!--/.Copyright-->
 
