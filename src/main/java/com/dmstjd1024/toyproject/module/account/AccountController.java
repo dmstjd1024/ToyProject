@@ -16,6 +16,7 @@ import javax.validation.Valid;
 @RequiredArgsConstructor
 public class AccountController {
 
+    private final AccountRepository accountRepository;
     private final AccountService accountService;
     private final SignUpFormValidator signUpFormValidator;
 
@@ -27,14 +28,14 @@ public class AccountController {
     @GetMapping("/sign-up")
     public String signUp(Model model) {
         model.addAttribute(new SignUpForm());
-        return "sign-up";
+        return "account/sign-up";
     }
 
     @PostMapping("/sign-up")
     public String submitSignUpForm(@Valid SignUpForm signUpForm, Errors errors){
 
         if(errors.hasErrors()){
-            return "sign-up";
+            return "account/sign-up";
         }
 
         accountService.saveNewAccount(signUpForm);
