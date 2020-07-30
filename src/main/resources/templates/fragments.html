@@ -95,7 +95,7 @@
                     <div class="dropdown-menu dropdown-menu-sm-right dropdown-secondary" aria-labelledby="userDropdown">
                         <a class="dropdown-item text-center" th:href="@{/settings/order}">마이 페이지</a>
                         <a class="dropdown-item text-center" th:href="@{/settings/contact}">나의 문의</a>
-                        <a class="dropdown-item text-center" th:href="@{/settings/account}">회원정보 설정</a>
+                        <a class="dropdown-item text-center" th:href="@{/settings/user}">회원정보 설정</a>
                         <a class="dropdown-item text-center" th:href="@{/logout}">
                             Logout
                         </a>
@@ -129,8 +129,8 @@
         <li class="list-group-item">
             <h3>나의 정보</h3>
             <a class="text-body" th:href="@{/settings/user}">회원정보 설정</a><br/>
-            <a class="text-body" th:href="@{/settings/user/withdraw}">회원 탈퇴</a><br/>
-            <a class="text-body" th:href="@{/settings/address}">배송지 관리</a></li>
+            <a class="text-body" th:href="@{/settings/changePassword}">비밀번호 변경</a><br/>
+            <a class="text-body" th:href="@{/settings/user/withdraw}">회원 탈퇴</a>
     </ul>
 </div>
 

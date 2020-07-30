@@ -1,4 +1,4 @@
-package com.dmstjd1024.toyproject.module;
+package com.dmstjd1024.toyproject.module.account;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

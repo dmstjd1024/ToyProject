@@ -1,6 +1,5 @@
 package com.dmstjd1024.toyproject.module.account;
 
-import com.dmstjd1024.toyproject.module.SignUpForm;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;

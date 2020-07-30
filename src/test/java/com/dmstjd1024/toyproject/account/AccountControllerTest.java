@@ -1,6 +1,6 @@
 package com.dmstjd1024.toyproject.account;
 
-import com.dmstjd1024.toyproject.module.SignUpForm;
+import com.dmstjd1024.toyproject.module.account.SignUpForm;
 import com.dmstjd1024.toyproject.module.account.Account;
 import com.dmstjd1024.toyproject.module.account.AccountRepository;
 import com.dmstjd1024.toyproject.module.account.AccountService;
@@ -10,7 +10,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.annotation.Rollback;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.junit.jupiter.api.Assertions.*;
