@@ -34,6 +34,11 @@ public class SettingsController {
         webDataBinder.addValidators(new PasswordFormValidator());
     }
 
+    @GetMapping({"/", ""})
+    public String moveOrderPage(){
+        return "redirect:/settings/order";
+    }
+
     //    나의 주문
     @GetMapping("/order")
     public String userOrderList(Model model, Principal principal){
@@ -82,6 +87,8 @@ public class SettingsController {
 //  나의 정보
     @GetMapping("/user")
     public String userSettings(Model model){
+
+        model.addAttribute("zoneList", zoneRepository.findAll());
 
         return "settings/user";
     }
