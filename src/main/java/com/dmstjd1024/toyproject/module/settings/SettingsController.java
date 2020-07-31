@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 import java.security.Principal;
@@ -106,13 +107,15 @@ public class SettingsController {
     }
 
     @PostMapping("/password")
-    public String passwordChange(Principal principal, @Valid PasswordForm passwordForm, Errors errors){
+    public String passwordChange(Principal principal, @Valid PasswordForm passwordForm, Errors errors,
+                                 RedirectAttributes redirectAttributes){
 
         if(errors.hasErrors()){
             return "settings/password";
         }
 
         accountService.updatePassword(principal.getName(), passwordForm.getNewPassword());
+        redirectAttributes.addFlashAttribute("message", "비밀번호가 변경 되었습니다.");
         return "redirect:/settings/password";
     }
 
