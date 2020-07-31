@@ -52,4 +52,14 @@ public class AccountService implements UserDetailsService {
 
         return new User(account.getNickname(), account.getPassword(), authorities);
     }
+
+    public void updatePassword(String name, String newPassword) {
+
+        Account account = accountRepository.findByNickname(name);
+
+        account.setPassword(passwordEncoder.encode(newPassword));
+
+        accountRepository.save(account);
+
+    }
 }

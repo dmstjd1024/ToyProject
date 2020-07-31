@@ -1,11 +1,9 @@
 package com.dmstjd1024.toyproject.module.settings;
 
 import com.dmstjd1024.toyproject.module.account.AccountRepository;
+import com.dmstjd1024.toyproject.module.account.AccountService;
 import com.dmstjd1024.toyproject.module.order.Orders;
 import com.dmstjd1024.toyproject.module.order.OrdersRepository;
-import com.dmstjd1024.toyproject.module.product.Product;
-import com.dmstjd1024.toyproject.module.product.ProductRepository;
-import com.dmstjd1024.toyproject.module.zone.Zone;
 import com.dmstjd1024.toyproject.module.zone.ZoneRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -19,10 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
 import java.security.Principal;
-import java.time.LocalDateTime;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Controller
 @RequiredArgsConstructor
@@ -31,11 +26,11 @@ public class SettingsController {
 
     private final AccountRepository accountRepository;
     private final OrdersRepository ordersRepository;
-    private final ProductRepository productRepository;
+    private final AccountService accountService;
     private final ZoneRepository zoneRepository;
 
     @InitBinder("passwordForm")
-    public void passwordFormInitBinder(WebDataBinder webDataBinder){
+    public void passwordFormInitBinder(WebDataBinder webDataBinder) {
         webDataBinder.addValidators(new PasswordFormValidator());
     }
 
@@ -97,20 +92,21 @@ public class SettingsController {
         return "settings/withdraw";
     }
 
-    @GetMapping("/changePassword")
+    @GetMapping("/password")
     public String passwordChangeForm(Model model){
         model.addAttribute(new PasswordForm());
-        return "settings/change-password";
+        return "settings/password";
     }
 
-    @PostMapping("/changePassword")
-    public String passwordChange(Model model, @Valid PasswordForm passwordForm, Errors errors){
+    @PostMapping("/password")
+    public String passwordChange(Principal principal, @Valid PasswordForm passwordForm, Errors errors){
 
         if(errors.hasErrors()){
-            return "settings/change-password";
+            return "settings/password";
         }
-        
-        return "redirect:/settings/user";
+
+        accountService.updatePassword(principal.getName(), passwordForm.getNewPassword());
+        return "redirect:/settings/password";
     }
 
 }
