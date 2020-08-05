@@ -20,11 +20,11 @@ public class Product {
 
     private String name;
 
-    private String productImage;
+    private String image;
 
     private Long price;
 
-    private String type;
+    private String category;
 
     private String shortDescription;
 

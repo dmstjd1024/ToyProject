@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments.html :: head"></head>
+<style>
+
+</style>
+
+<body>
+<nav th:replace="fragments.html :: main-nav"></nav>
+<div class="container">
+    <div class="row">
+        <main role="main" class="col-md-12 ml-sm-auto py-3 px-4">
+            <!--<div th:replace="fragments.html :: product-list" class="container p-3"></div>-->
+            <!--Content-->
+            <section class="text-center mb-4">
+
+                <div class="col text-center">
+                    <h1 class="justify-content-center"> All</h1>
+                </div>
+
+                <div class="row wow fadeIn">
+                    <div class="col-md-3" th:each="product : ${productList}">
+                        <div class="card my-3">
+                            <img th:if="${#strings.isEmpty(product.image)}" src="/image/empty.jpeg" class="card-img-top">
+                            <img th:if="${!#strings.isEmpty(product.image)}" th:src="@{product.image}" class="card-img-top">
+                            <div class="card-body text-center">
+                                <h5>
+                                    <strong><a th:href="@{/product/}" class="dark-grey-text" th:text="${product.name}"></a></strong>
+                                </h5>
+                                <h4 class="font-weight-bold blue-text">
+                                    <strong th:text="${product.price}"></strong>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+        </main>
+    </div>
+</div>
+
+<footer th:replace="fragments.html :: footer"></footer>
+
+</body>
+</html>
+
