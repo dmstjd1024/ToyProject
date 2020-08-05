@@ -1,8 +1,7 @@
 package com.dmstjd1024.toyproject.module.account;
 
-import com.dmstjd1024.toyproject.module.order.Orders;
+import com.dmstjd1024.toyproject.module.order.Order;
 import lombok.*;
-import org.hibernate.criterion.Order;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -27,5 +26,5 @@ public class Account {
     private String password;
 
     @OneToMany
-    private Set<Orders> orderList = new HashSet<>();
+    private Set<Order> orderList = new HashSet<>();
 }

@@ -2,8 +2,8 @@ package com.dmstjd1024.toyproject.module.settings;
 
 import com.dmstjd1024.toyproject.module.account.AccountRepository;
 import com.dmstjd1024.toyproject.module.account.AccountService;
-import com.dmstjd1024.toyproject.module.order.Orders;
-import com.dmstjd1024.toyproject.module.order.OrdersRepository;
+import com.dmstjd1024.toyproject.module.order.Order;
+import com.dmstjd1024.toyproject.module.order.OrderRepository;
 import com.dmstjd1024.toyproject.module.zone.ZoneRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -26,7 +26,7 @@ import java.util.List;
 public class SettingsController {
 
     private final AccountRepository accountRepository;
-    private final OrdersRepository ordersRepository;
+    private final OrderRepository orderRepository;
     private final AccountService accountService;
     private final ZoneRepository zoneRepository;
 
@@ -46,7 +46,7 @@ public class SettingsController {
 
         Long accountId = accountRepository.findByNickname(principal.getName()).getId();
 
-        List<Orders> ordersList = ordersRepository.findByAccountId(accountId);
+        List<Order> ordersList = orderRepository.findByAccountId(accountId);
 
         model.addAttribute(ordersList);
 

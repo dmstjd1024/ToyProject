@@ -22,7 +22,7 @@
                             <th scope="col" style="width: 20%">가격</th>
                         </tr>
                         </thead>
-                        <tbody th:each="order: ${ordersList}">
+                        <tbody th:each="order: ${orderList}">
                         <tr th:each="product:${order.productSet}">
                             <th scope="row">
                                 <img th:if="${#strings.isEmpty(product?.productImage)}" th:src="${product.productImage}"
