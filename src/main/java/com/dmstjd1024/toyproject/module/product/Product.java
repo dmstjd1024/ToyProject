@@ -1,5 +1,6 @@
 package com.dmstjd1024.toyproject.module.product;
 
+import com.dmstjd1024.toyproject.module.category.Category;
 import lombok.*;
 
 import javax.persistence.*;
@@ -21,7 +22,9 @@ public class Product {
 
     private Long price;
 
-    private String category;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id")
+    private Category category;
 
     private String shortDescription;
 
