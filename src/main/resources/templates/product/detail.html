@@ -21,7 +21,7 @@
                 </div>
 
                 <div class="row wow fadeIn">
-                    <div class="col-md-3" th:each="product : ${productList}">
+                    <div class="col-md-3" th:object="${product}">
                         <div class="card my-3">
                             <img th:if="${#strings.isEmpty(product.image)}" src="/image/empty.jpeg" class="card-img-top">
                             <img th:if="${!#strings.isEmpty(product.image)}" th:src="@{product.image}" class="card-img-top">

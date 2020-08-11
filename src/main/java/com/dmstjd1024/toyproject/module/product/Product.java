@@ -2,10 +2,7 @@ package com.dmstjd1024.toyproject.module.product;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import java.time.LocalDateTime;
+import javax.persistence.*;
 
 @Entity
 @AllArgsConstructor
@@ -31,7 +28,5 @@ public class Product {
     private String size;
 
     private int qtyStock;
-
-    private LocalDateTime createdDate;
 
 }

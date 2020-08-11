@@ -20,11 +20,6 @@ public class MainController {
         return "checkout";
     }
 
-    @GetMapping("/product")
-    public String product(){
-        return "product";
-    }
-
     @GetMapping("/login")
     public String login() {
         return "login";
