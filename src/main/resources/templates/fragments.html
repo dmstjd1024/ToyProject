@@ -89,9 +89,11 @@
                 <li class="nav-item avatar dropdown" sec:authorize="isAuthenticated()">
                     <a class="nav-link waves-effect waves-light dropdown-toggle" href="#" id="userDropdown"
                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-3.jpg"
-                             class="rounded-circle z-depth-0 my-2"
-                             alt="profile default image" height="32" width="32">
+
+                        <i th:if="${#strings.isEmpty(account?.image)}" class='fas fa-user my-2' style='font-size:32px'></i>
+
+                        <img th:if="${!#strings.isEmpty(account?.image)}" th:src="@{account.image}"
+                             class="rounded-circle z-depth-0 my-2" alt="profile default image" height="32" width="32">
                     </a>
                     <div class="dropdown-menu dropdown-menu-sm-right dropdown-secondary" aria-labelledby="userDropdown">
                         <a class="dropdown-item text-center" th:href="@{/settings/order}">마이 페이지</a>

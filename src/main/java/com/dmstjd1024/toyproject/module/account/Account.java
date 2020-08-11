@@ -19,6 +19,9 @@ public class Account {
     @Column(nullable = false, unique = true)
     private String nickname;
 
+    @Column
+    private String image;
+
     @Column(nullable = false, unique = true)
     private String email;
 
