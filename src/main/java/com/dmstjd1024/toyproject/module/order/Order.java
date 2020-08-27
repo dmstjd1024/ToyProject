@@ -1,7 +1,6 @@
 package com.dmstjd1024.toyproject.module.order;
 
 import com.dmstjd1024.toyproject.module.account.Account;
-import com.dmstjd1024.toyproject.module.product.Product;
 import lombok.*;
 
 import javax.persistence.*;
@@ -24,11 +23,11 @@ public class Order {
     @JoinColumn(name = "account_id")
     private Account account;
 
+    @OneToMany(mappedBy = "order")
+    private Set<OrderProduct> orderProductList = new HashSet<>();
+
     private LocalDateTime orderTime;
 
-    private int orderStock;
-
-    @OneToMany
-    private Set<Product> productSet = new HashSet<>();
+    private String status;
 
 }
