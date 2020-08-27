@@ -40,3 +40,6 @@ src/main/resources/static/node_modules/*
 
 #zone
 src/main/resources/zones.csv
+
+#image
+src/main/resources/static/image/**
